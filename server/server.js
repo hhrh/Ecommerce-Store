@@ -20,7 +20,6 @@ mongoose
     .catch((error) => console.log(error));
 
 const app = express();
-const PORT = process.env.PORT || 5001;
 
 app.use(
     cors({
@@ -50,4 +49,10 @@ app.use('/api/shop/search', shopSearchRouter);
 app.use('/api/shop/reviews', shopReviewsRouter);
 app.use('/api/common/feature', commonFeatureRouter);
 
-app.listen(PORT, ()=>console.log(`Server is now running on port: ${PORT}`));
+if (process.env.NODE_ENV !== "production") {
+    const PORT = process.env.PORT || 5001;
+    app.listen(PORT, () =>
+        console.log(`Server running locally on http://localhost:${PORT}`)
+    );
+}
+module.exports = {app}
