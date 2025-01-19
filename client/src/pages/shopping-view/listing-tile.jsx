@@ -22,9 +22,9 @@ function ShoppingListingTile({ product, handleAddToCart }) {
             <div onClick={()=>handleGetProductDetails(product?._id)}>
                 <div className="relative">
                     <img
-                        src={product?.image}
+                        src={product?.images[0]?.secure_url}
                         alt={product?.title}
-                        className="w-full h-[300px] object-cover rounded-lg"
+                        className="w-full h-[300px] object-contain rounded-lg"
                     />
                     {
                     product?.totalStock === 0 ? (

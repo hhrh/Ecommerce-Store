@@ -56,7 +56,7 @@ function AdminProducts() {
       formData.category.trim() !== "" && // Category should not be empty
       formData.brand.trim() !== "" && // Brand should not be empty
       /^[0-9]+(\.[0-9]{1,2})?$/.test(formData.price) && // Price should be a valid number with up to 2 decimals
-      /^[0-9]+(\.[0-9]{1,2})?$/.test(formData.salePrice) && // Sale Price: same as price
+      ///^[0-9]+(\.[0-9]{1,2})?$/.test(formData.salePrice) && // Sale Price: same as price
       /^\d+$/.test(formData.totalStock) // Total Stock should be a whole number
     );
   }
@@ -119,7 +119,7 @@ function AdminProducts() {
             Add New Product
           </Button>
         </div>
-        <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4 border rounded-lg min-h-screen">
+        <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-3 border rounded-lg min-h-screen">
           {productList && productList.length > 0
             ? productList.map((productItem, i) => (
                 <AdminProductTile

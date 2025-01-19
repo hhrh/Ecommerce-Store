@@ -14,11 +14,11 @@ function CartWrapper({cartItems}) {
     const finalCartItems = user ? cartItems.items : guestCart;
 
     const cartTotal = finalCartItems && finalCartItems.length > 0 ?
-        finalCartItems.reduce((sum, currentItem) => {
+        (finalCartItems.reduce((sum, currentItem) => {
             return sum + (
                 currentItem?.salePrice > 0 ? currentItem?.salePrice : currentItem?.price
             ) * currentItem?.quantity
-        }, 0)
+        }, 0)).toFixed(2)
         : 0
 
     useEffect(() => {
@@ -38,7 +38,7 @@ function CartWrapper({cartItems}) {
         };
         fetchGuestCartDetails();
     }, [user, cartItems, dispatch]);
-    console.log(finalCartItems)
+    console.log(finalCartItems, 'what')
 
     useEffect(() => { //fetch products
         dispatch(fetchAllListings({ filterParams: null, sortParams: 'price-lowtohigh' }));

@@ -11,8 +11,6 @@ const addProductReview = async(req,res)=>{
             userName,
             reviewMessage,
             reviewValue,
-            country,
-            state,
         } = req.body;
 
         //check if user ordered this product and it confirmed it.
@@ -27,6 +25,8 @@ const addProductReview = async(req,res)=>{
                 message: "You need to purchase this product before reviewing.",
             });
         }
+
+        console.log(order, 'ordeerer')
 
         //a user shouldnt be able to add more than one review
         const hasReviewed = await Review.findOne({ productId, userId });
@@ -43,8 +43,8 @@ const addProductReview = async(req,res)=>{
             userName,
             reviewMessage,
             reviewValue,
-            country,
-            state,
+            country: order.country,
+            state: order.state
         });
 
         await newReview.save();

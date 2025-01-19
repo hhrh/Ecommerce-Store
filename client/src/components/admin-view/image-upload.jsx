@@ -21,7 +21,7 @@ function ProductImageUpload({ images, setImages, loadingIndexes, setLoadingIndex
       if (uploadResult) {
         setImages((prevImages) => [
           ...prevImages,
-          { preview: URL.createObjectURL(file), cloudinaryData: uploadResult },
+          { uploadResult },
         ]);
       }
       // Remove from loading indexes

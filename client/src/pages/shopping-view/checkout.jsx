@@ -25,11 +25,11 @@ function ShoppingCheckout() {
     console.log(checkoutItems, "items")
 
     const cartTotal = checkoutItems && checkoutItems.length > 0 ?
-        checkoutItems.reduce((sum, currentItem) => {
+        (checkoutItems.reduce((sum, currentItem) => {
             return sum + (
                 currentItem?.salePrice > 0 ? currentItem?.salePrice : currentItem?.price
             ) * currentItem?.quantity
-        }, 0)
+        }, 0)).toFixed(2)
         : 0;
 
     function handlePaypalPayment() {
@@ -82,7 +82,7 @@ function ShoppingCheckout() {
         }
         
         dispatch(createOrder(orderData)).then(data=>{
-            if (data.payload.success) {
+            if (data?.payload?.success) {
                 setisOrderCreated(true);
             } else {
                 setisOrderCreated(false);
@@ -120,7 +120,10 @@ function ShoppingCheckout() {
                     className="h-full w-full object-cover object-center"
                 />
             </div>
-            <div className="grid md:grid-cols-2 gap-3 mt-5 p-4">
+            <div>
+                <h1 className="text-3xl font-bold mt-5 ml-5">Checkout</h1>
+            </div>
+            <div className="grid md:grid-cols-2 gap-3 p-4">
                 <Address setSelectedAddress={setSelectedAddress} selectedId={selectedAddress?._id}/>
                 <Card>
                     <CardHeader>
@@ -150,7 +153,7 @@ function ShoppingCheckout() {
                             </div>
                         </div>
                         <div className="mt-4 w-full">
-                            <Button onClick={handlePaypalPayment} className="w-full">
+                            <Button onClick={handlePaypalPayment} className="w-full text-xl font-bold">
                                 {
                                     isOrderCreated ? 'Processing Paypal payment...' : 'Checkout with PayPal'
                                 }

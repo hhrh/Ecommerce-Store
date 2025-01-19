@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
@@ -12,7 +13,7 @@ const adminOrderRouter = require('./routes/admin/order-routes')
 const shopSearchRouter = require('./routes/shop/search-routes')
 const shopReviewsRouter = require('./routes/shop/reviews-routes')
 const commonFeatureRouter = require('./routes/common/feature-routes')
-
+const adminUserRouter = require('./routes/admin/user-routes')
 //connect to DB
 mongoose
     .connect(process.env.MONGO_URL)
@@ -48,6 +49,7 @@ app.use('/api/shop/order', OrderRouter);
 app.use('/api/shop/search', shopSearchRouter);
 app.use('/api/shop/reviews', shopReviewsRouter);
 app.use('/api/common/feature', commonFeatureRouter);
+app.use('/api/admin/users', adminUserRouter);
 
 if (process.env.NODE_ENV !== "production") {
     const PORT = process.env.PORT || 5001;

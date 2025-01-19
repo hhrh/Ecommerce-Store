@@ -20,6 +20,7 @@ const createOrder = async (req, res) => {
             payerId,
             cartId,
         } = req.body;
+        console.log(totalAmount, req.body)
 
         const cartItemsMap = cartItems.map((item) => ({
             name: item.title,
@@ -38,11 +39,11 @@ const createOrder = async (req, res) => {
                     {
                         amount: {
                             currencyCode: "USD",
-                            value: totalAmount.toFixed(2),
+                            value: parseFloat(totalAmount).toFixed(2),
                             breakdown: {
                                 itemTotal: {
                                     currencyCode: "USD",
-                                    value: totalAmount.toFixed(2),
+                                    value: parseFloat(totalAmount).toFixed(2),
                                 },
                             },
                         },

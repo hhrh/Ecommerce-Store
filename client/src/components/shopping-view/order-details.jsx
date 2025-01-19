@@ -6,6 +6,7 @@ import { Separator } from "../ui/separator";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
 
 function UserOrderDetails({ details }) {
+    console.log(details)
     const { user } = useSelector(state => state.auth);
 
     return (
@@ -56,10 +57,10 @@ function UserOrderDetails({ details }) {
                                 Shipping info
                             </div>
                             <div className="grid gap-0.5 text-muted-foreground">
-                                <span>{user?.userName}</span>
+                                <span>{details?.addressInfo.firstName} {details?.addressInfo.lastName}</span>
                                 <span>{details?.addressInfo.phone}</span>
                                 <span>{details?.addressInfo.address}</span>
-                                <span>{details?.addressInfo.city}</span>
+                                <span>{details?.addressInfo.city}, {details?.addressInfo.state}</span>
                                 <span>{details?.addressInfo.zipcode}</span>
                                 <span>{details?.addressInfo.notes}</span>
                             </div>

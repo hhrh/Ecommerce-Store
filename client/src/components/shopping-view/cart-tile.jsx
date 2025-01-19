@@ -11,6 +11,7 @@ function CartTile({ cartItem }) {
     const { user } = useSelector(state => state.auth);
     const { toast } = useToast();
     const dispatch = useDispatch();
+    console.log(cartItem, "cartitem");
 
     function handleDeleteCartItem(item) {
         if (user) {
@@ -73,7 +74,7 @@ function CartTile({ cartItem }) {
 
     return (
         <div className="flex items-center space-x-4 hover:bg-primary-foreground transition-all duration-300 rounded-lg p-2 shadow-md">
-            <img src={cartItem?.image} alt={cartItem?.title} className="w-20 h-20 rounded object-cover" />
+            <img src={cartItem?.images[0]?.secure_url} alt={cartItem?.title} className="w-20 h-20 rounded object-cover" />
             <div className="flex-1">
                 <h3 className="font-extrabold">{cartItem?.title}</h3>
                 <div className="flex items-center mt-1 gap-2">

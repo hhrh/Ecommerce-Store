@@ -11,6 +11,7 @@ import searchSlice from './shop/search-slice'
 import reviewsSlice from './shop/reviews-slice'
 import guestAddressReducer from './shop/guestAddress-slice'
 import featureSlice from './common/feature-slice/index.js'
+import adminUsersSlice from './admin/users-slice'
 
 const store = configureStore({
     reducer: {
@@ -25,7 +26,8 @@ const store = configureStore({
         search: searchSlice,
         reviews: reviewsSlice,
         guestAddress: guestAddressReducer,
-        featuredImages: featureSlice
+        featuredImages: featureSlice,
+        adminUsers: adminUsersSlice
     },
 });
 
