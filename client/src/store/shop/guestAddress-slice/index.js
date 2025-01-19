@@ -23,7 +23,7 @@ const guestAddressSlice = createSlice({
         // Edit an existing address
         guestEditAddress(state, action) {
             const { id, updatedAddress } = action.payload;
-            const index = state.addresses.findIndex((addr) => addr._id === id);
+            const index = state.addresses.findIndex((addr) => addr.id === id);
             if (index !== -1) {
                 state.addresses[index] = { ...state.addresses[index], ...updatedAddress };
                 saveAddressesToLocalStorage(state.addresses);
@@ -32,7 +32,7 @@ const guestAddressSlice = createSlice({
         // Delete an address
         guestDeleteAddress(state, action) {
             const id = action.payload;
-            state.addresses = state.addresses.filter((addr) => addr._id !== id);
+            state.addresses = state.addresses.filter((addr) => addr.id !== id);
             saveAddressesToLocalStorage(state.addresses);
         },
         // Clear all addresses (e.g., for resetting the guest checkout)

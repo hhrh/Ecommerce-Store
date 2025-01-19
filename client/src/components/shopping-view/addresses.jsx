@@ -32,7 +32,7 @@ function Address({ setSelectedAddress, selectedId }) {
 
     const selectAddressList = user ? addressList : guestAddressList.addresses;
 
-    console.log(selectedId, 'for tile')
+    console.log(selectAddressList, 'for tile')
 
     function handleSubmitAddress(event) {
         event.preventDefault();
@@ -89,6 +89,7 @@ function Address({ setSelectedAddress, selectedId }) {
     }
     function handleDeleteAddress(info) {
         if(!user) {
+            console.log(info)
             dispatch(guestDeleteAddress(info.id));
             toast({
                 title: "Address deleted successfully."
@@ -138,7 +139,7 @@ function Address({ setSelectedAddress, selectedId }) {
     return (
         <Card className="grid grid-cols-[repeat(auto-fit,_minmax(400px,_1fr))] gap-4">
             <div className="flex flex-col m-4">
-                {selectAddressList && selectAddressList && selectAddressList.length > 0
+                {selectAddressList && selectAddressList.length > 0
                     ? selectAddressList.map((info) => (
                             <AddressTile info={info} key={info._id} 
                             handleEditAddress={handleEditAddress}

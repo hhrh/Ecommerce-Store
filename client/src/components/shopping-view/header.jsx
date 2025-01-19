@@ -169,7 +169,7 @@ function ShoppingHeader() {
                     <div className="flex flex-col border p-1 rounded-full px-4">
                     <div className="font-bold text-lg text-gray-800 hover:text-gray-600">
                         <div className="flex w-full justify-center h-6 font-bold font-extrabold">EXAMPLE</div>
-                        <div className="text-sm font-serif text-blue-500">Sporting Goods</div>
+                        <div className="text-sm font-serif">Sporting Goods</div>
                     </div>
                     </div>
                 </Link>

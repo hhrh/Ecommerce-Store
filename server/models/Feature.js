@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const FeatureSchema = new mongoose.Schema({
-    url: String,
+    secureUrl: String,
     publicId: String
 }, {timestamps: true})
 

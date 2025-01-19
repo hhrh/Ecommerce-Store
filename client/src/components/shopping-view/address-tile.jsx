@@ -1,8 +1,11 @@
+import { useSelector } from "react-redux";
 import { Button } from "../ui/button";
 import { Card, CardContent, CardFooter } from "../ui/card";
 
 function AddressTile({ info, handleEditAddress, handleDeleteAddress, setSelectedAddress, selectedId }) {
-    console.log(info, selectedId)
+    const { user } = useSelector(state => state.auth);
+    console.log(selectedId, 'ididid')
+
     const fields = [
         { label: "Name", value: `${info?.firstName} ${info?.lastName}` },
         { label: "Address", value: info?.address },
@@ -16,7 +19,7 @@ function AddressTile({ info, handleEditAddress, handleDeleteAddress, setSelected
     ];
     return ( 
         <Card onClick={setSelectedAddress ? () => setSelectedAddress(info) : null}
-            className={`m-2 shadow-md cursor-pointer ${(selectedId === info?._id) ? 'bg-blue-300 ' : 'hover:bg-blue-300/50 transition-colors'}`}>
+            className={`m-2 shadow-md cursor-pointer ${(user && selectedId === info?._id) || (!user && selectedId === info?.id) ? 'bg-blue-300' : 'hover:bg-blue-300/50 transition-colors'}`}>
             <CardContent className='p-4 grid gap-4 rounded-lg'>
                 <div className='p-4 bg-primary-foreground border rounded-lg shadow-inner'>
                     {fields.map((field, index) => (

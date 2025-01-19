@@ -33,6 +33,12 @@ function ShoppingCheckout() {
         : 0;
 
     function handlePaypalPayment() {
+        if(!user) {
+            toast({
+                title: 'Login or create an account to checkout.'
+            });
+            return;
+        }
         if (checkoutItems.length <= 0) {
             toast({
                 title: 'Your cart is empty.',
@@ -124,7 +130,7 @@ function ShoppingCheckout() {
                 <h1 className="text-3xl font-bold mt-5 ml-5">Checkout</h1>
             </div>
             <div className="grid md:grid-cols-2 gap-3 p-4">
-                <Address setSelectedAddress={setSelectedAddress} selectedId={selectedAddress?._id}/>
+                <Address setSelectedAddress={setSelectedAddress} selectedId={user ? selectedAddress?._id : selectedAddress?.id}/>
                 <Card>
                     <CardHeader>
                         <CardTitle>Your Cart</CardTitle>
@@ -153,7 +159,7 @@ function ShoppingCheckout() {
                             </div>
                         </div>
                         <div className="mt-4 w-full">
-                            <Button onClick={handlePaypalPayment} className="w-full text-xl font-bold">
+                            <Button onClick={handlePaypalPayment} className="w-full font-bold">
                                 {
                                     isOrderCreated ? 'Processing Paypal payment...' : 'Checkout with PayPal'
                                 }
