@@ -1,4 +1,5 @@
 require("dotenv").config();
+const serverless = require("serverless-http");
 const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
@@ -56,9 +57,10 @@ app.get("/", (req, res) => {
 app.get("/api/hello", (req, res) => {
     res.json({ message: "Hello from the backend!" });
 });
-
-const PORT = process.env.PORT || 5001;
-app.listen(PORT, () =>
-    console.log(`Server running on PORT: ${PORT}`)
-);
-module.exports = app;
+if(process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 5001;
+    app.listen(PORT, () =>
+        console.log(`Server running on PORT: ${PORT}`)
+    );
+}
+module.exports = serverless(app);
