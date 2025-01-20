@@ -57,4 +57,9 @@ if (process.env.NODE_ENV !== "production") {
         console.log(`Server running locally on http://localhost:${PORT}`)
     );
 }
-module.exports = {app}
+// Routes
+app.get("/", (req, res) => {
+  res.send("API is running...");
+});
+
+module.exports = app;
