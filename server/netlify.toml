@@ -8,3 +8,7 @@
   status = 200
   from = "/*"
   to = "/.netlify/functions/server"
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://sporting-goods.netlify.app"
