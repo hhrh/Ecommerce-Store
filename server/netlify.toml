@@ -1,5 +1,5 @@
 [build]  
-  command = "echo Building Functions"
+  command = echo "Building Functions"
 [functions]
   external_node_modules = ["express"]
   node_bundler = "esbuild"
