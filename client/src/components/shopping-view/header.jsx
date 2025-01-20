@@ -61,15 +61,12 @@ function HeaderRightContent() {
     const guestCartItems = useSelector(state => state.guestCartItems);
     const cartTileItems = user ? cartItems : guestCartItems;
     const {toast} = useToast();
-    console.log(cartTileItems)
     
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     function handleLogout() {
-        console.log(user, "logouted?")
         dispatch(logoutUser()).then((data) => {
-            console.log(data, "data")
             if (data?.payload?.success) {
                 toast({
                     title: data?.payload?.message || 'Logged out successfully.'

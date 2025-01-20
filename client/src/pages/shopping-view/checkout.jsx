@@ -22,7 +22,6 @@ function ShoppingCheckout() {
     const navigate = useNavigate()
     const {toast} = useToast()
     const checkoutItems = user ? cartItems.items : guestCart
-    console.log(checkoutItems, "items")
 
     const cartTotal = checkoutItems && checkoutItems.length > 0 ?
         (checkoutItems.reduce((sum, currentItem) => {

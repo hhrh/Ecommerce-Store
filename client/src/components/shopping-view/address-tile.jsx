@@ -4,7 +4,6 @@ import { Card, CardContent, CardFooter } from "../ui/card";
 
 function AddressTile({ info, handleEditAddress, handleDeleteAddress, setSelectedAddress, selectedId }) {
     const { user } = useSelector(state => state.auth);
-    console.log(selectedId, 'ididid')
 
     const fields = [
         { label: "Name", value: `${info?.firstName} ${info?.lastName}` },

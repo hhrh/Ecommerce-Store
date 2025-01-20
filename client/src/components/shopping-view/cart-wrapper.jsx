@@ -38,7 +38,6 @@ function CartWrapper({cartItems}) {
         };
         fetchGuestCartDetails();
     }, [user, cartItems, dispatch]);
-    console.log(finalCartItems, 'what')
 
     useEffect(() => { //fetch products
         dispatch(fetchAllListings({ filterParams: null, sortParams: 'price-lowtohigh' }));

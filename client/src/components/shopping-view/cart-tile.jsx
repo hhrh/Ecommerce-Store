@@ -11,7 +11,6 @@ function CartTile({ cartItem }) {
     const { user } = useSelector(state => state.auth);
     const { toast } = useToast();
     const dispatch = useDispatch();
-    console.log(cartItem, "cartitem");
 
     function handleDeleteCartItem(item) {
         if (user) {

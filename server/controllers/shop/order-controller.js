@@ -20,7 +20,6 @@ const createOrder = async (req, res) => {
             payerId,
             cartId,
         } = req.body;
-        console.log(totalAmount, req.body)
 
         const cartItemsMap = cartItems.map((item) => ({
             name: item.title,

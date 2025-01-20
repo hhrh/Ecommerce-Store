@@ -3,7 +3,6 @@ const Product = require('../../models/Product');
 const Review = require('../../models/Review');
 
 const addProductReview = async(req,res)=>{
-    console.log("wierd");
     try {
         const {
             productId,
@@ -25,8 +24,6 @@ const addProductReview = async(req,res)=>{
                 message: "You need to purchase this product before reviewing.",
             });
         }
-
-        console.log(order, 'ordeerer')
 
         //a user shouldnt be able to add more than one review
         const hasReviewed = await Review.findOne({ productId, userId });

@@ -20,7 +20,6 @@ function ListingDetailsDialog({ listingDetails, handleAddToCart }) {
     const [rating, setRating] = useState(0);
     const dispatch = useDispatch();
     const { toast } = useToast();
-    console.log(reviews)
 
     const avgReview = //calculate average 5star review
         reviews && reviews.length > 0
@@ -31,7 +30,6 @@ function ListingDetailsDialog({ listingDetails, handleAddToCart }) {
             : 5; // Default to 0 if no reviews
 
     function handleChangeRating(ratingValue) {
-        console.log(ratingValue)
         setRating(ratingValue);
     }
 

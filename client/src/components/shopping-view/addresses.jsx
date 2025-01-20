@@ -32,11 +32,8 @@ function Address({ setSelectedAddress, selectedId }) {
 
     const selectAddressList = user ? addressList : guestAddressList.addresses;
 
-    console.log(selectAddressList, 'for tile')
-
     function handleSubmitAddress(event) {
         event.preventDefault();
-        console.log(formData)
 
         if (selectAddressList && selectAddressList.length >= 3 && IdToEdit === null) {
             toast({
@@ -70,7 +67,6 @@ function Address({ setSelectedAddress, selectedId }) {
             })
         } else {
             if(!user) {
-                console.log("woo")
                 dispatch(guestAddAddress({ _id: Date.now(), ...formData}));
                 dispatch(fetchAllAddresses(user?.id));
                 setFormData(initialAddressData);
@@ -89,7 +85,6 @@ function Address({ setSelectedAddress, selectedId }) {
     }
     function handleDeleteAddress(info) {
         if(!user) {
-            console.log(info)
             dispatch(guestDeleteAddress(info.id));
             toast({
                 title: "Address deleted successfully."

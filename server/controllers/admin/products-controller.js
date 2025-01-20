@@ -6,7 +6,6 @@ const handleImageUpload = async(req, res) => {
         const b64 = Buffer.from(req.file.buffer).toString('base64');
         const fileUrl = "data:" + req.file.mimetype + ";base64," + b64;
         const result = await imageUploadUtil(fileUrl);
-        console.log(result,"from cloudinary")
 
         res.json({
             success: true,
@@ -24,7 +23,6 @@ const handleImageUpload = async(req, res) => {
 const handleDeleteImage = async (req, res) => {
   try {
     const { public_id } = req.body;
-    console.log(req.body);
     const result = await imageDeleteUtil(public_id);
     res.status(200).json(result);
   } catch (error) {

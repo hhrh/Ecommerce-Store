@@ -246,7 +246,6 @@ const deleteCartItem = async (req, res) => {
 const mergeCarts = async (req, res) => {
     try {
         const { userId, guestCart } = req.body;
-        console.log(req.body);
 
         // Fetch the user's cart
         let userCart = await Cart.findOne({ userId });

@@ -15,14 +15,11 @@ function AdminOrdersCard() {
 
     function handleGetOrderDetails(id) {
         dispatch(getOrderDetailsAdmin(id));
-        console.log(orderDetails, "GET DEEZ DETAILS MANE");
     }
 
     useEffect(()=>{
         dispatch(getAllUserOrders())
     }, [dispatch])
-
-    console.log(orderDetails, "GET DEEZ DETAILS MANEEEEE");
 
     return (
         <Card>

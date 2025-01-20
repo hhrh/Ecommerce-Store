@@ -22,7 +22,6 @@ function SearchPage() {
             const itemIndex = items.findIndex(item => item.productId)
             if (itemIndex > -1) {
                 const quantity = items[itemIndex].quantity
-                console.log("called", totalStock, quantity)
                 if (quantity + 1 > totalStock) {
                     toast({
                         title: `Only ${quantity} in stock.`,
