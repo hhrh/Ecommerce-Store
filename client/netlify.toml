@@ -1,10 +1,4 @@
-[[redirects]]
-  from = "/*"
-  to = "https://example-store-api.netlify.app"
-  status = 200
-  force = true
-  headers = {X-From = "Netlify"}
 [[headers]]
   for = "/*"
   [headers.values]
-    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Origin = "https://sporting-goods.netlify.app"
