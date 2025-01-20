@@ -4,17 +4,17 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const authRouter = require("./routes/auth/auth-routes");
-const adminProductsRouter = require("./routes/admin/products-routes");
-const shopListingRouter = require("./routes/shop/listing-routes");
-const shopCartRouter = require("./routes/shop/cart-routes");
-const shopAddressRouter = require("./routes/shop/address-routes");
-const OrderRouter = require("./routes/shop/order-routes");
-const adminOrderRouter = require("./routes/admin/order-routes");
-const shopSearchRouter = require("./routes/shop/search-routes");
-const shopReviewsRouter = require("./routes/shop/reviews-routes");
-const commonFeatureRouter = require("./routes/common/feature-routes");
-const adminUserRouter = require("./routes/admin/user-routes");
+const authRouter = require("../../routes/auth/auth-routes");
+const adminProductsRouter = require("../../routes/admin/products-routes");
+const shopListingRouter = require("../../routes/shop/listing-routes");
+const shopCartRouter = require("../../routes/shop/cart-routes");
+const shopAddressRouter = require("../../routes/shop/address-routes");
+const OrderRouter = require("../../routes/shop/order-routes");
+const adminOrderRouter = require("../../routes/admin/order-routes");
+const shopSearchRouter = require("../../routes/shop/search-routes");
+const shopReviewsRouter = require("../../routes/shop/reviews-routes");
+const commonFeatureRouter = require("../../routes/common/feature-routes");
+const adminUserRouter = require("../../routes/admin/user-routes");
 //connect to DB
 mongoose
     .connect(process.env.MONGO_URI)
@@ -63,4 +63,4 @@ if(process.env.NODE_ENV !== 'production') {
         console.log(`Server running on PORT: ${PORT}`)
     );
 }
-module.exports = serverless(app);
+export const handler = serverless(app);
