@@ -16,7 +16,7 @@ const commonFeatureRouter = require("./routes/common/feature-routes");
 const adminUserRouter = require("./routes/admin/user-routes");
 //connect to DB
 mongoose
-    .connect(process.env.MONGO_URL)
+    .connect(process.env.MONGO_URI)
     .then(() => console.log("MongoDB Connected."))
     .catch((error) => console.log(error));
 
@@ -57,11 +57,8 @@ app.get("/api/hello", (req, res) => {
     res.json({ message: "Hello from the backend!" });
 });
 
-if (process.env.NODE_ENV !== "production") {
-    const PORT = process.env.PORT || 5001;
-    app.listen(PORT, () =>
-        console.log(`Server running locally on http://localhost:${PORT}`)
-    );
-} else {
-    module.exports = app;
-}
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () =>
+    console.log(`Server running on PORT: ${PORT}`)
+);
+module.exports = app;
