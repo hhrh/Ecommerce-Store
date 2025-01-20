@@ -1,5 +1,4 @@
 const app = require("./server.js");
+const serverless = require("serverless-http");
 
-module.exports = (req, res) => {
-    app(req, res);
-};
+module.exports = serverless(app);
