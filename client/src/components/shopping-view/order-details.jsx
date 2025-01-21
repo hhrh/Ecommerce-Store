@@ -6,7 +6,6 @@ import { Separator } from "../ui/separator";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
 
 function UserOrderDetails({ details }) {
-    console.log(details)
     const { user } = useSelector(state => state.auth);
 
     return (

@@ -48,7 +48,6 @@ function AdminProducts() {
     }
 
   function isFormValid() {
-    console.log(formData)
     return (
       loadingIndexes &&
       formData.title.trim() !== "" && // Title should not be empty
@@ -69,7 +68,6 @@ function AdminProducts() {
                 id: currentEditedId,
                 formData
             })).then(data=>{
-                console.log(data, "EDITT")
                 if(data?.payload?.success) {
                     dispatch(fetchAllProducts());
                     setOpenCreateProducts(false);
@@ -93,7 +91,6 @@ function AdminProducts() {
                 ...formData,
                 images: images,
             })).then((data)=>{
-                console.log(data);
                 if(data?.payload?.success) {
                     dispatch(fetchAllProducts());
                     setOpenCreateProducts(false);

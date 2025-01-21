@@ -13,7 +13,6 @@ function AdminDashboard() {
     const {imageList} = useSelector(state=>state.featuredImages)
     const dispatch = useDispatch();
     const {toast} = useToast();
-    console.log(imageList);
 
     function handleUploadImage() {
         if(images.length <=0) {

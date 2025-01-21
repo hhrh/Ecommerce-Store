@@ -23,13 +23,16 @@ function MenuItems() {
 
     function handleNav(menuItem) {
         sessionStorage.removeItem('filters')
-        if (menuItem.id === 'home' || menuItem.id === 'search' || menuItem.id === 'all') {
+        if (menuItem.id === 'home' || menuItem.id === 'search') {
+            navigate(menuItem.path)
+        } else if (menuItem.id === 'all') {
+            setFilters(null)
             navigate(menuItem.path)
         } else { 
         const currentFilter = {category : [menuItem.id]}
             sessionStorage.setItem('filters', JSON.stringify(currentFilter))
             setFilters(currentFilter)
-            navigate(`${menuItem.path}`);
+            navigate(`${menuItem.path}?category=${menuItem.id}`);
         }
     }
     // Dispatch fetchAllListings whenever filters change
@@ -40,12 +43,12 @@ function MenuItems() {
     }, [filters, dispatch]);
 
     return (
-        <nav className="flex flex-col mb-3 lg:mb-0 lg:items-center gap-6 lg:flex-row">
+        <nav className="flex flex-col mb-3 lg:mb-0 lg:items-cente gap-5 lg:flex-row">
             {shoppingViewHeaderItems.map((menuItem) => (
                 <Label
                     key={menuItem.id}
-                    className="text:sm font-medium cursor-pointer"
-                    onClick={()=>handleNav(menuItem)}>
+                    className="lg:text-sm font-medium cursor-pointer hover:text-blue-500 hover:bg-gray-100 hover:scale-105 transform transition-all duration-300 rounded-lg px-2 py-1"
+                    onClick={() => handleNav(menuItem)}>
                     {menuItem.label}
                 </Label>
             ))}
@@ -81,7 +84,7 @@ function HeaderRightContent() {
     },[dispatch])
 
     return (
-        <div className="flex lg:items-center lg:flex-row flex-col gap-4">
+        <div className="flex lg:items-center flex-row gap-4">
             {/* Cart icon top right */}
             <Sheet>
                 <SheetTrigger asChild>
@@ -165,7 +168,7 @@ function ShoppingHeader() {
                 >
                     <div className="flex flex-col border p-1 rounded-full px-4">
                     <div className="font-bold text-lg text-gray-800 hover:text-gray-600">
-                        <div className="flex w-full justify-center h-6 font-bold font-extrabold">EXAMPLE</div>
+                        <div className="flex w-full justify-center h-6 font-extrabold">EXAMPLE</div>
                         <div className="text-sm font-serif">Sporting Goods</div>
                     </div>
                     </div>
@@ -182,15 +185,14 @@ function ShoppingHeader() {
                     </SheetTrigger>
                     <SheetContent
                         side="left"
-                        className="w-full max-w-xs">
+                        className="w-full max-w-xs overflow-y-scroll">
                         <MenuItems />
-                        <HeaderRightContent />
                     </SheetContent>
                 </Sheet>
                 <div className="hidden lg:block">
                     <MenuItems />
                 </div>
-                <div className="hidden lg:block">
+                <div className="absolute right-20 lg:static lg:block">
                     <HeaderRightContent />
                 </div>
             </div>

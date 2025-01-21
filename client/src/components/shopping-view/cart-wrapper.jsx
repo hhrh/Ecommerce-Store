@@ -12,6 +12,7 @@ function CartWrapper({cartItems}) {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const finalCartItems = user ? cartItems.items : guestCart;
+    console.log(finalCartItems)
 
     const cartTotal = finalCartItems && finalCartItems.length > 0 ?
         (finalCartItems.reduce((sum, currentItem) => {
@@ -44,14 +45,17 @@ function CartWrapper({cartItems}) {
     }, [dispatch])
 
     return ( 
-        <SheetContent className="sm:max-w-md">
+        <SheetContent className="sm:max-w-md overflow-y-scroll">
             <SheetHeader>
                 <SheetTitle>Your Cart</SheetTitle>
             </SheetHeader>
             <div className="mt-8 space-y-4">
                 {
                     finalCartItems && finalCartItems.length > 0 ? 
-                        finalCartItems.map(item => <CartTile key={item.title} cartItem={item}/>) : null
+                        finalCartItems.map(item => <CartTile key={item.title} cartItem={item}/>)
+                        : <div>
+                            <p className="font-medium text-muted-foreground">Your cart is empty</p>
+                        </div>
                 }
             </div>
             <div className="mt-8 space-y-4">

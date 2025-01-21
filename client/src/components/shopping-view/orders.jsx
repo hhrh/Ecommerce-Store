@@ -21,7 +21,6 @@ function UserOrders() {
         dispatch(getAllOrdersByUser(user?.id))
     }, [dispatch])
 
-    console.log(orderDetails, "orderDetails");
     return (
         <Card>
             <CardHeader>

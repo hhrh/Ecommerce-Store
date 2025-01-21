@@ -163,7 +163,10 @@ function ShoppingListing() {
                         Listings.map((listing) =>
                             <ShoppingListingTile handleAddToCart={handleAddToCart} key={listing._id} product={listing} />
                         )
-                    ) : null
+                    ) 
+                    : <div>
+                        <p className="font-medium">No products for this selection</p>
+                    </div>
                 }
             </div>
         </div>

@@ -16,10 +16,10 @@ function AuthLayout() {
               </div>
             </h1>
           </div>
-        <Button className="absolute top-0 left-0 m-6" onClick={()=>navigate('/shop/home')}>
-          <ArrowLeftCircleIcon/>Back
-        </Button>
         </div>
+        <Button className="absolute top-0 left-0 m-6" onClick={() => navigate('/shop/home')}>
+          <ArrowLeftCircleIcon />Back
+        </Button>
         <div className="flex flex-1 items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8">
           <Outlet />
         </div>
