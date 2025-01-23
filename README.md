@@ -2,17 +2,15 @@
 Demo: https://sporting-goods.netlify.app  
 Full-stack eCommerce web application.  
 Built with MERN stack (MongoDB, Express.js, React.js, Node.js).  
-Modern design. Functionality for Users and Admins.  
+Modern UI. Functionality for Users and Admins.  
 <img width="600" alt="Screenshot 2025-01-19 at 12 03 36 PM" src="https://github.com/user-attachments/assets/233b662d-636a-49fe-a963-129c589785e1" />
 <img width="600" alt="Screenshot 2025-01-19 at 11 17 10 AM" src="https://github.com/user-attachments/assets/71fa6419-1db4-464c-ab9e-a439052c783c" />  
 
 ### User Features  
-- Modern Design:  
-  -  Clean and responsive UI.
 - Cart Functionality:  
-  -	Add items to the cart, update quantities, remove items.
+  - Add to cart, update quantity, remove items.
 - Product Display:  
-  -	Updates automatically when new products are added by the admin.
+  - Updates automatically when new products are added by the admin.
 - Review section:  
   - users can add reviews (only if they purchased the product).
 - Search Page:  
